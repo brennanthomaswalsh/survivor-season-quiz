@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import SurvivorSeasonImage from '../images/survivor-season-image.png'
+import './SeasonCard.css'
 
-function SeasonCard () {
+function SeasonCard() {
 	return (
 		<div ClassName="survivor-season-card">
 			<img src={SurvivorSeasonImage} />
