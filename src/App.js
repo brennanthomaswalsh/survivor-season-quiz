@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import SeasonCard from './components/SeasonCard'
 import produce from 'immer'
+import './reduxStore'
 
 const seasonArray = [{season: 1}, {season: 2}, {season: 3}]
 
@@ -16,7 +17,7 @@ function App() {
       draftCurrentSeasonArray.splice(currentIndex + 1, 0, elemToMove)
     }))
   }
-  
+
   const currentList = currentSeasonArray.map((season) =>
     <li>{season['season']}</li>
   );
