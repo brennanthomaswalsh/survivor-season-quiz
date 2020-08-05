@@ -1,24 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Fragment }from 'react';
 import './App.css';
+import Season from './Season.js'
+
+let survivorList = [
+  { season: 1, points: 0, winner: 'Hatch', seasonName: 'season1' },
+  { season: 2, points: 0, winner: 'Wesson', seasonName: 'Australia'},
+  { season: 3, points: 0, winner: 'Zohn', seasonName: 'Africa' }
+]
+
+let seasonsToCompare = function () {
+  survivorList.map((elem) =>
+    <Season
+      seasonName={elem['seasonName']}
+      winner={elem['winner']}
+     />)
+}
+
+let completed = function () {
+  return new Set(survivorList.map(elem => elem['points'] )).size == survivorList.length
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {completed() && (
+        <div>Hello </ div> )}
+      {!completed() &&(
+        <Fragment>
+          <div>{seasonsToCompare} </ div>
+        </Fragment>
+       )}
     </div>
   );
 }
