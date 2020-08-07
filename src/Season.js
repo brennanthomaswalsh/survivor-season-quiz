@@ -1,20 +1,22 @@
-import React from 'react';
+import React, { Fragment }from 'react';
 
 function Season({seasonName, winner}) {
   return(
-    <div>
-      <p>Season: </p>
+    <Fragment>
       <div>
-        { seasonName }
+        <p>Season: </p>
+        <div>
+          { seasonName }
+        </div>
       </div>
-    </div>
 
-    <div>
-      <p>Winner: </p>
       <div>
-        { winner }
+        <p>Winner: </p>
+        <div>
+          { winner }
+        </div>
       </div>
-    </div>
+     </ Fragment>
   )
 }
 
