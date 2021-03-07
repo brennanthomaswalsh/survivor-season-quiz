@@ -18,7 +18,17 @@ const seasonsList = [
     title: "Survivor Africa",
     description: "Well beloved in its time. By todays standards a rather tame season with a charming winner. Winner: Ethan Zohn",
     src: "https://www.youtube.com/embed/vWvU4vW9eVg"
-  }
+  },
+  {
+    title: "Survivor Marquesas",
+    description: "The first season for the beloved Boston Rob and a victory by a prayer warrior. Winner: Vecepia Towery",
+    src: "https://www.youtube.com/embed/BdWiabh7Tmc"
+  },
+  {
+    title: "Survivor Thailand",
+    description: "This season is much maligned and deservedly so. The winner known as the iceman was a manipulative mastermind. Winner: Brian Heidik",
+    src: "https://www.youtube.com/embed/FJpLoHltPgU"
+  },
  ]
 
 function App() {
@@ -26,23 +36,29 @@ function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [orderedSeasonsList, setOrderedSeasonsList] = useState(seasonsList)
   const endPoint = seasonsList.length - 1
+  const [numberSorts, setNumberSorts] = useState(0)
 
   const onClick = (buttonIndex) => {
+    const newIndex = currentIndex + 1
     if(buttonIndex == currentIndex) {
-      setCurrentIndex(currentIndex + 1)
-    } else {
       const newList = [
-      orderedSeasonsList[buttonIndex],
-      orderedSeasonsList[currentIndex],
-      ...orderedSeasonsList.splice(2)
-      ]
+        ...orderedSeasonsList
+       ]
+      newList[currentIndex] = orderedSeasonsList[currentIndex + 1]
+      newList[currentIndex + 1] = orderedSeasonsList[currentIndex]
 
       setOrderedSeasonsList(newList)
-      setCurrentIndex(currentIndex + 1)
+      setNumberSorts(numberSorts + 1)
+      setCurrentIndex(newIndex)
+    } else {
+      setCurrentIndex(newIndex)
     }
 
-    if(currentIndex == endPoint) {
+    if(newIndex == endPoint && numberSorts == 0) {
       setStatus("sorted")
+    } else if (newIndex == endPoint) {
+      setCurrentIndex(0);
+      setNumberSorts(0);
     }
   }
 
@@ -71,9 +87,9 @@ function App() {
         <>
           <div>
             <h1>You Did it!</h1>
-            <p>Below is an ordered list of survivor seasons by your preference from favorite to least favorite using science! </p>
+            <p>Below is an ordered list of survivor seasons by your preference from least favorite to most favorite using science! </p>
           </div>
-          <ol>
+          <ol reversed>
            { seasons }
           </ol>
         </>
