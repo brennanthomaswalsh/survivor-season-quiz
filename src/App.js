@@ -39,7 +39,6 @@ const seasonsList = [
 function App() {
   const [status, setStatus] = useState("unsorted");
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [currentPointer, setCurrentPointer] = useState(-1);
   const [orderedSeasonsList, setOrderedSeasonsList] = useState(seasonsList)
   const endPoint = seasonsList.length - 1
   const [numberSorts, setNumberSorts] = useState(0)
@@ -47,7 +46,7 @@ function App() {
   const onClick = (buttonIndex) => {
 
     const newIndex = currentIndex + 1
-    if(buttonIndex == currentIndex) {
+    if(buttonIndex === currentIndex) {
       const newList = [
         ...orderedSeasonsList
        ]
@@ -61,9 +60,9 @@ function App() {
       setCurrentIndex(newIndex)
     }
 
-    if(newIndex == endPoint && numberSorts == 0) {
+    if(newIndex === endPoint && numberSorts === 0) {
       setStatus("sorted")
-    } else if (newIndex == endPoint) {
+    } else if (newIndex === endPoint) {
       setCurrentIndex(0);
       setNumberSorts(0);
     }
@@ -84,12 +83,12 @@ function App() {
 
   const viewRender = () => {
 
-    if(status == "unsorted"){
+    if(status === "unsorted"){
       return (
         <Battlefield combatant1={seasons[currentIndex]} combatant2={seasons[currentIndex + 1]}/>
 
       )
-    } else if(status == "sorted") {
+    } else if(status === "sorted") {
       return (
         <>
           <div>
