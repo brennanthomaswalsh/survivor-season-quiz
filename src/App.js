@@ -1,37 +1,38 @@
-import React, { Fragment }from 'react';
+import React, { useState }from 'react';
+import { Card, Video } from "@bwalsh/component_library"
 import './App.css';
-import Season from './Season.js'
-
-let survivorList = [
-  { season: 1, points: 0, winner: 'Hatch', seasonName: 'borneo' },
-  { season: 2, points: 0, winner: 'Wesson', seasonName: 'Australia'},
-  { season: 3, points: 0, winner: 'Zohn', seasonName: 'Africa' }
-]
-
-
-let completed = function () {
-  return new Set(survivorList.map(elem => elem['points'] )).size == survivorList.length
-}
 
 function App() {
-  const seasonsToCompare = survivorList.map((elem) =>
+  const [status, setStatus] = useState("unsorted")
+
+  const seasonsList = [
     {
-      return (
-        <Season
-          winner={elem['winner']}
-          seasonName={elem['seasonName']}
-        >
-      )
+      title: "Survivor Borneo",
+      description: "This is the iconic first season that started it all. Winner: Richard Hatch",
+      src: "https://www.youtube.com/embed/BhKQBTJME5o"
+    },
+    {
+      title: "Survivor Australian Outback",
+      description: "Incredibly improving on the first season in every way. Winner: Tina Wesson",
+      src: "https://www.youtube.com/embed/NpLNK5dej9s"
     }
-  )
+   ]
+
+   const seasons = seasonsList.map(({ title, description, src }) =>
+     {
+       return (
+         <Card title={title} description={description}>
+           <Video title={title} src={src} />
+         </Card>
+       )
+     })
+
+
 
   return (
+
     <div>
-      {completed() && (
-        <div>Hello </ div> )}
-      {!completed() &&(
-         <Fragment>{seasonsToCompare} </ Fragment>
-       )}
+      { seasons }
     </div>
   );
 }
