@@ -7,11 +7,11 @@ const containerStyles = {
 
 function Battlefield({ combatant1, combatant2 }) {
   return(
-    <div style={containerStyles}>
+    <ol style={containerStyles}>
       {combatant1}
       <h3>VS.</h3>
       {combatant2}
-    </div>
+    </ol>
   )
 }
 
