@@ -29,16 +29,23 @@ const seasonsList = [
     description: "This season is much maligned and deservedly so. The winner known as the iceman was a manipulative mastermind. Winner: Brian Heidik",
     src: "https://www.youtube.com/embed/FJpLoHltPgU"
   },
+  {
+    title: "Survivor The Amazon",
+    description: "The first time they split tribes my gender with an unexpected winner. Winner: Jenna Morasco",
+    src: "https://www.youtube.com/embed/bMS0QBaEgqw"
+  },
  ]
 
 function App() {
   const [status, setStatus] = useState("unsorted");
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentPointer, setCurrentPointer] = useState(-1);
   const [orderedSeasonsList, setOrderedSeasonsList] = useState(seasonsList)
   const endPoint = seasonsList.length - 1
   const [numberSorts, setNumberSorts] = useState(0)
 
   const onClick = (buttonIndex) => {
+
     const newIndex = currentIndex + 1
     if(buttonIndex == currentIndex) {
       const newList = [
