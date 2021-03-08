@@ -180,6 +180,11 @@ const seasonsList = [
     src: "https://www.youtube.com/embed/dRD_cmYhQz8"
   },
   {
+    title: "Survivor Ghost Island",
+    description: "The island is haunted ooooo. Winner: Wendell",
+    src: "https://www.youtube.com/embed/rXNmU0U_kz0"
+  },
+  {
     title: "Survivor David vs Goliath",
     description: "I mean David wins as we all know. Winner: Nick Wilson",
     src: "https://www.youtube.com/embed/1IvHxDI8P5Y"
