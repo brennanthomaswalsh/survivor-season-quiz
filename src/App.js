@@ -253,7 +253,7 @@ function App() {
   const [orderedSeasonsList, setOrderedSeasonsList] = useState(seasonsList)
   const [listOfWins, setListOfWins] = useState([])
 
-  React.useEffect(() => {
+  useEffect(() => {
     if(orderedSeasonsList[currentIndex + 1] === undefined){
       return;
     }
