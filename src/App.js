@@ -279,7 +279,7 @@ function App() {
       onClick(currentIndex + 1)
     }
 
-  }, [orderedSeasonsList])
+  })
 
   const onClick = (buttonIndex) => {
     const newList = [
